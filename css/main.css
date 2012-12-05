@@ -1,0 +1,37 @@
+body {
+  padding-top: 20px;
+}
+.container {
+  max-width: 680px;
+  width: 680px;
+}
+#search-form {
+  margin: 40px 0;
+}
+#search-form button {
+  margin-left: 25px;
+}
+.results {
+  border-top: 1px dotted #ccc;
+  padding-top: 35px;
+}
+.results dl dt,
+.results dl dd {
+  padding-bottom: 10px;
+}
+.results dd.loaded .spinner {
+  display: none;
+}
+.results dd.loaded .result {
+  display: inherit !important;
+}
+.results dd .spinner {
+  width: 22px;
+  height: 22px;
+}
+.results dd .result {
+  display: none;
+}
+.results dd .result table {
+  margin-top: 10px;
+}

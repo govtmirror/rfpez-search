@@ -1,0 +1,38 @@
+body
+  padding-top 20px
+
+.container
+  max-width 680px
+  width 680px
+
+#search-form
+  margin 40px 0
+
+  button
+    margin-left 25px
+
+.results
+  border-top 1px dotted #ccc
+  padding-top 35px
+
+  dl
+    dt, dd
+      padding-bottom 10px
+
+  dd
+    &.loaded
+      .spinner
+        display none
+
+      .result
+        display inherit !important
+
+    .spinner
+      width 22px
+      height 22px
+
+    .result
+      display none
+
+      table
+        margin-top 10px

@@ -1,0 +1,62 @@
+!!!
+html
+  head
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='js/modernizr.js')
+
+    title RFP-EZ Search
+
+  body
+    .container
+      h1 RFP-EZ Search
+      hr
+
+      p
+        | This site aggregates search results from multiple procurement databases. Enter a DUNS number below and we'll search
+        | DSBS and EPLS for you.
+
+      form.form-horizontal#search-form
+
+        .control-group
+          label.control-label DUNS number
+          .controls
+            input(type='text', name='duns')
+            button.btn.btn-primary Search
+
+      .results.hide
+        dl.dl-horizontal
+          dt EPLS
+          dd(data-epls)
+            a.result
+            img.spinner(src="img/spinner.gif")
+
+          dt DSBS
+          dd(data-dsbs)
+            .result
+              a.yesno
+
+              table.table#dsbs-table
+                thead
+                  tr
+                    th Name
+                    th Status
+                tbody
+                  tr
+                    th vietnam
+                    td(data-key="vietnam")
+                  tr
+                    th dav
+                    td(data-key="dav")
+                  tr
+                    th veteran
+                    td(data-key="veteran")
+                  tr
+                    th women
+                    td(data-key="women")
+
+            img.spinner(src="img/spinner.gif")
+
+
+  script(src='js/jquery.js')
+  script(src='js/main.js')
