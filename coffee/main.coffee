@@ -1,3 +1,24 @@
+fpdsTemplate = _.template """
+  <li>
+    <dl>
+      <dt>Contract ID</dt>
+      <dd><%= contract_id %></dd>
+
+      <dt>Date Signed</dt>
+      <dd><%= date_signed %></dd>
+
+      <dt>Office Name</dt>
+      <dd><%= contracting_office_name %></dt>
+
+      <dt>Agency</dt>
+      <dd><%= contracting_agency %></dd>
+
+      <dt>Action Obligation</dt>
+      <dd><%= action_obligation %></dd>
+    </dl>
+  </li>
+"""
+
 $(document).on "submit", "#search-form", (e) ->
   e.preventDefault()
 
@@ -31,6 +52,26 @@ $(document).on "submit", "#search-form", (e) ->
 
     else
       $("#dsbs-table").hide()
+
+    dd.addClass("loaded")
+
+  fpdsUrl = "http://rfpez-apis.presidentialinnovationfellows.org/awards?q=#{duns}&per_page=100000"
+
+  $.getJSON fpdsUrl, (r) ->
+
+    hasResults = r.results?[0]
+
+    dd = $("[data-fpds]")
+    dd.find(".result").find("a.yesno").attr('href', fpdsUrl).text(if hasResults then "Yes" else "No")
+
+    if hasResults
+      $("#fpds-list").show()
+
+      for result in r.results
+        $("#fpds-list").append(fpdsTemplate(result))
+
+    else
+      $("#fpds-list").hide()
 
     dd.addClass("loaded")
 

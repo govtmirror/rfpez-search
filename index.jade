@@ -44,6 +44,9 @@ html
                     th Status
                 tbody
                   tr
+                    th name
+                    td(data-key="name")
+                  tr
                     th vietnam
                     td(data-key="vietnam")
                   tr
@@ -58,6 +61,14 @@ html
 
             img.spinner(src="img/spinner.gif")
 
+          dt FPDS
+          dd(data-fpds)
+            .result
+              a.yesno
+              ul#fpds-list
+            img.spinner(src="img/spinner.gif")
+
 
   script(src='js/jquery.js')
+  script(src='js/underscore.js')
   script(src='js/main.js')
