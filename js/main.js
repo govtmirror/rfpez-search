@@ -47,10 +47,10 @@
         _ref1 = r.results;
         for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
           result = _ref1[_i];
-          $("#fpds-list").append(fpdsTemplate(result));
+          $("#fpds-list").html('').append(fpdsTemplate(result));
         }
       } else {
-        $("#fpds-list").hide();
+        $("#fpds-list").html('').hide();
       }
       return dd.addClass("loaded");
     });

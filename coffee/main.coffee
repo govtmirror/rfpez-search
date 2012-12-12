@@ -68,10 +68,10 @@ $(document).on "submit", "#search-form", (e) ->
       $("#fpds-list").show()
 
       for result in r.results
-        $("#fpds-list").append(fpdsTemplate(result))
+        $("#fpds-list").html('').append(fpdsTemplate(result))
 
     else
-      $("#fpds-list").hide()
+      $("#fpds-list").html('').hide()
 
     dd.addClass("loaded")
 
